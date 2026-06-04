@@ -1,0 +1,39 @@
+name: alientvault_fetch
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch threats
+        run: python src/data/alienvault_live.py
+        env:
+          ALIENVAULT_API_KEY: ${{ secrets.ALIENVAULT_API_KEY }}
+
+      - name: Preprocess data
+        run: python src/data/preprocess_data.py
+
+      - name: Commit new data
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+          git add data/raw/live/threats.json
+          git add data/preprocessed/live_threats.csv
+          git commit -m "Update live threats $(date)" || echo "No changes"
+          git push
