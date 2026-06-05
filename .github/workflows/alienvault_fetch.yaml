@@ -33,7 +33,7 @@ jobs:
         run: |
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
-          git add data/raw/threats.json
+          git add data/raw/alienvault.json
           git add data/preprocessed/threats.csv
           git commit -m "Update live threats $(date)" || echo "No changes"
           git push
