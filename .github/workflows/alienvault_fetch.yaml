@@ -34,8 +34,11 @@ jobs:
       - name: Run DVC pipeline
         run: |
           dvc pull
+          dvc status
           dvc repro
           dvc push
+          git add dvc.lock
+          git commit -m "Update dvc.lock on `date` with GitHub Actions" || true
         env:
           THREATFOX_API_KEY: ${{ secrets.THREATFOX_API_KEY }}
 
