@@ -2,6 +2,157 @@
   "query_status": "ok",
   "data": [
     {
+      "id": "1822878",
+      "ioc": "154.88.99.34:8884",
+      "threat_type": "botnet_cc",
+      "threat_type_desc": "Indicator that identifies a botnet command&control server (C&C)",
+      "ioc_type": "ip:port",
+      "ioc_type_desc": "ip:port combination that is used for botnet Command&control (C&C)",
+      "malware": "win.vshell",
+      "malware_printable": "VShell",
+      "malware_alias": null,
+      "malware_malpedia": "https://malpedia.caad.fkie.fraunhofer.de/details/win.vshell",
+      "confidence_level": 100,
+      "is_compromised": true,
+      "first_seen": "2026-06-05 17:00:16 UTC",
+      "last_seen": null,
+      "reference": null,
+      "reporter": "anonymous",
+      "tags": [
+        "Vshell"
+      ]
+    },
+    {
+      "id": "1822876",
+      "ioc": "154.88.99.36:8884",
+      "threat_type": "botnet_cc",
+      "threat_type_desc": "Indicator that identifies a botnet command&control server (C&C)",
+      "ioc_type": "ip:port",
+      "ioc_type_desc": "ip:port combination that is used for botnet Command&control (C&C)",
+      "malware": "win.vshell",
+      "malware_printable": "VShell",
+      "malware_alias": null,
+      "malware_malpedia": "https://malpedia.caad.fkie.fraunhofer.de/details/win.vshell",
+      "confidence_level": 100,
+      "is_compromised": true,
+      "first_seen": "2026-06-05 17:00:15 UTC",
+      "last_seen": null,
+      "reference": null,
+      "reporter": "anonymous",
+      "tags": [
+        "Vshell"
+      ]
+    },
+    {
+      "id": "1822877",
+      "ioc": "154.88.99.35:8884",
+      "threat_type": "botnet_cc",
+      "threat_type_desc": "Indicator that identifies a botnet command&control server (C&C)",
+      "ioc_type": "ip:port",
+      "ioc_type_desc": "ip:port combination that is used for botnet Command&control (C&C)",
+      "malware": "win.vshell",
+      "malware_printable": "VShell",
+      "malware_alias": null,
+      "malware_malpedia": "https://malpedia.caad.fkie.fraunhofer.de/details/win.vshell",
+      "confidence_level": 100,
+      "is_compromised": true,
+      "first_seen": "2026-06-05 17:00:15 UTC",
+      "last_seen": null,
+      "reference": null,
+      "reporter": "anonymous",
+      "tags": [
+        "Vshell"
+      ]
+    },
+    {
+      "id": "1822875",
+      "ioc": "154.88.99.38:8884",
+      "threat_type": "botnet_cc",
+      "threat_type_desc": "Indicator that identifies a botnet command&control server (C&C)",
+      "ioc_type": "ip:port",
+      "ioc_type_desc": "ip:port combination that is used for botnet Command&control (C&C)",
+      "malware": "win.vshell",
+      "malware_printable": "VShell",
+      "malware_alias": null,
+      "malware_malpedia": "https://malpedia.caad.fkie.fraunhofer.de/details/win.vshell",
+      "confidence_level": 100,
+      "is_compromised": true,
+      "first_seen": "2026-06-05 17:00:14 UTC",
+      "last_seen": null,
+      "reference": null,
+      "reporter": "anonymous",
+      "tags": [
+        "Vshell"
+      ]
+    },
+    {
+      "id": "1822872",
+      "ioc": "http://196.251.107.104/Psd8eZaW/index.php",
+      "threat_type": "botnet_cc",
+      "threat_type_desc": "Indicator that identifies a botnet command&control server (C&C)",
+      "ioc_type": "url",
+      "ioc_type_desc": "URL that is used for botnet Command&control (C&C)",
+      "malware": "win.amadey",
+      "malware_printable": "Amadey",
+      "malware_alias": null,
+      "malware_malpedia": "https://malpedia.caad.fkie.fraunhofer.de/details/win.amadey",
+      "confidence_level": 100,
+      "is_compromised": false,
+      "first_seen": "2026-06-05 17:00:12 UTC",
+      "last_seen": "2026-06-05 17:06:14 UTC",
+      "reference": null,
+      "reporter": "Bitsight",
+      "tags": [
+        "282234",
+        "Amadey",
+        "c2"
+      ]
+    },
+    {
+      "id": "1822873",
+      "ioc": "http://196.251.107.104/Psd8eZaW/index.php",
+      "threat_type": "botnet_cc",
+      "threat_type_desc": "Indicator that identifies a botnet command&control server (C&C)",
+      "ioc_type": "url",
+      "ioc_type_desc": "URL that is used for botnet Command&control (C&C)",
+      "malware": "win.amadey",
+      "malware_printable": "Amadey",
+      "malware_alias": null,
+      "malware_malpedia": "https://malpedia.caad.fkie.fraunhofer.de/details/win.amadey",
+      "confidence_level": 100,
+      "is_compromised": false,
+      "first_seen": "2026-06-05 17:00:12 UTC",
+      "last_seen": null,
+      "reference": null,
+      "reporter": "Bitsight",
+      "tags": [
+        "282234",
+        "Amadey",
+        "c2"
+      ]
+    },
+    {
+      "id": "1822874",
+      "ioc": "154.88.99.44:8884",
+      "threat_type": "botnet_cc",
+      "threat_type_desc": "Indicator that identifies a botnet command&control server (C&C)",
+      "ioc_type": "ip:port",
+      "ioc_type_desc": "ip:port combination that is used for botnet Command&control (C&C)",
+      "malware": "win.vshell",
+      "malware_printable": "VShell",
+      "malware_alias": null,
+      "malware_malpedia": "https://malpedia.caad.fkie.fraunhofer.de/details/win.vshell",
+      "confidence_level": 100,
+      "is_compromised": true,
+      "first_seen": "2026-06-05 17:00:12 UTC",
+      "last_seen": null,
+      "reference": null,
+      "reporter": "anonymous",
+      "tags": [
+        "Vshell"
+      ]
+    },
+    {
       "id": "1822871",
       "ioc": "xcaejii.enobahis.co",
       "threat_type": "payload_delivery",
@@ -5755,7 +5906,7 @@
       "confidence_level": 50,
       "is_compromised": false,
       "first_seen": "2026-06-05 02:36:02 UTC",
-      "last_seen": "2026-06-05 16:48:02 UTC",
+      "last_seen": "2026-06-05 17:00:06 UTC",
       "reference": "https://tracker.viriback.com/index.php?q=89.124.78.101",
       "reporter": "abuse_ch",
       "tags": [
