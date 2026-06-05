@@ -34,6 +34,9 @@ jobs:
       - name: Preprocess data
         run: python src/data/preprocess_data.py
 
+      - name: Check changes
+        run: git status
+
       - name: Commit new data
         run: |
           git config user.email "actions@github.com"
