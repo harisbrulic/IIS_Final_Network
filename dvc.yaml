@@ -18,7 +18,7 @@ stages:
       - data/preprocessed/threats.csv
 
   validate:
-    cmd: cd gx && python run_checkpoint.py
+    cmd: cd gx && python exceptions.py
     deps:
       - data/preprocessed/normal.csv
       - data/preprocessed/attacks.csv
