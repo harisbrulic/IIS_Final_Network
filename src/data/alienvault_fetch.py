@@ -13,10 +13,13 @@ def alienvault_fetch():
     url = "https://otx.alienvault.com/api/v1/pulses/subscribed"
     headers = {"X-OTX-API-KEY": api_key}
     
+    
     response = requests.get(url, headers=headers)
+    print(f"Status: {response.status_code}")
+    response.raise_for_status()
     
     data = response.json()
-    
+
     file_path = "data/raw/alienvault.json"
     
     with open(file_path, "w") as f:

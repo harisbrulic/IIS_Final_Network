@@ -37,13 +37,14 @@ def preprocess_data():
                 ips.append({
                     
                     "ip": indicator.get("indicator"),
-                    "pulse": pulse.get("name")
+                    "pulse": pulse.get("name"),
+                    "created": indicator.get("created")
                 })
                 
     new_df = pd.DataFrame(ips)
     
     combined_df = pd.concat([existing_df, new_df], ignore_index=True)
-    combined_df = combined_df.drop_duplicates(subset=["ip"])
+    combined_df = combined_df.drop_duplicates(subset=["ip", "pulse"])
     
     combined_df.to_csv(threats_path, index=False)
 
