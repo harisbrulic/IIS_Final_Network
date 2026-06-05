@@ -1,0 +1,18 @@
+stages:
+  threatfox_fetch:
+    cmd: python src/data/threatfox_fetch.py
+    deps:
+      - src/data/threatfox_fetch.py
+    outs:
+      - data/raw/threatfox.json
+
+  preprocess:
+    cmd: python src/data/preprocess_data.py
+    deps:
+      - src/data/preprocess_data.py
+      - data/raw/Merged63.csv
+      - data/raw/threatfox.json
+    outs:
+      - data/preprocessed/normal.csv
+      - data/preprocessed/attacks.csv
+      - data/preprocessed/threats.csv
