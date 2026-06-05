@@ -30,6 +30,9 @@ jobs:
         run: |
           dvc remote modify origin --local access_key_id ${{ secrets.DAGSHUB_ACCESS_KEY_ID }}
           dvc remote modify origin --local secret_access_key ${{ secrets.DAGSHUB_SECRET_ACCESS_KEY }}
+      
+      - name: Install DVC S3
+        run: pip install 'dvc[s3]'
 
       - name: Run DVC pipeline
         run: |
