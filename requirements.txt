@@ -12,3 +12,4 @@ dvc-studio-client==0.20.0
 dvc-task==0.4.0
 dvclive==3.45.0
 great-expectations==0.18.13
+pathspec==0.11.2
