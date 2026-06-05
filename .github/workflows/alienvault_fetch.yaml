@@ -31,8 +31,9 @@ jobs:
 
       - name: Configure DVC
         run: |
-          dvc remote modify origin --local user ${{ secrets.DAGSHUB_USERNAME }}
-          dvc remote modify origin --local password ${{ secrets.DAGSHUB_TOKEN }}
+          dvc remote modify origin endpointurl https://dagshub.com/haris.brulic/IIS_Final_Network.s3
+          dvc remote modify origin --local access_key_id ${{ secrets.DAGSHUB_ACCESS_KEY_ID }}
+          dvc remote modify origin --local secret_access_key ${{ secrets.DAGSHUB_SECRET_ACCESS_KEY }}
 
       - name: Pull from DVC
         run: dvc pull
