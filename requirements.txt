@@ -11,3 +11,4 @@ dvc-s3==3.1.0
 dvc-studio-client==0.20.0
 dvc-task==0.4.0
 dvclive==3.45.0
+great-expectations==0.18.13

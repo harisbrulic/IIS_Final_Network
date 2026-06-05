@@ -1,5 +1,6 @@
 [core]
     autostage = true
+    remote = origin
 ['remote "origin"']
     url = s3://dvc
     endpointurl = https://dagshub.com/haris.brulic/IIS_Final_Network.s3

@@ -1,4 +1,4 @@
-name: threatfox_fetch
+name: Fetch, Preprocess, Validate
 
 on:
   schedule:
@@ -18,21 +18,35 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup Python
+      - name: Python getting ready
         uses: actions/setup-python@v4
         with:
           python-version: '3.12'
 
-      - name: Install dependencies
+      - name: DVC getting ready
+        uses: iterative/setup-dvc@v1
+
+      - name: Install requirements
         run: pip install -r requirements.txt
 
-      - name: Fetch threats
+      - name: Fetch threatfox
         run: python src/data/threatfox_fetch.py
         env:
           THREATFOX_API_KEY: ${{ secrets.THREATFOX_API_KEY }}
 
-      - name: Preprocess data
+      - name: Preprocess
         run: python src/data/preprocess_data.py
+
+      - name: Validate
+        run: python gx/exceptions.py
+
+      - name: Configure DVC
+        run: |
+          dvc remote modify origin --local user ${{ secrets.DAGSHUB_USERNAME }}
+          dvc remote modify origin --local password ${{ secrets.DAGSHUB_TOKEN }}
+
+      - name: Push to DVC
+        run: dvc push
 
       - name: Check changes
         run: git status
@@ -41,7 +55,7 @@ jobs:
         run: |
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
-          git add data/raw/threatfox.json
-          git add data/preprocessed/threats.csv
+          git add data/
+          git add dvc.lock
           git commit -m "Update live threats $(date)" || echo "No changes"
           git push
