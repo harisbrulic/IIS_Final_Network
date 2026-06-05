@@ -1417,8 +1417,8 @@
   "count": 8594,
   "prefetch_pulse_ids": false,
   "t": 0,
-  "t2": 0.028261423110961914,
-  "t3": 0.03303885459899902,
+  "t2": 0.05492997169494629,
+  "t3": 0.03368806838989258,
   "previous": null,
   "next": "https://otx.alienvault.com/api/v1/pulses/subscribed?page=2"
 }
