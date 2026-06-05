@@ -1,4 +1,5 @@
-ip,description,pulse
-185.178.208.153,,Latest goon squad to use fake helpdesk calls to steal creds
-96.232.20.66,,Latest goon squad to use fake helpdesk calls to steal creds
-162.33.177.16,,ClickFix Deno Abuse to CastleRAT
+ip,description,pulse,created
+185.178.208.153,,Latest goon squad to use fake helpdesk calls to steal creds,
+96.232.20.66,,Latest goon squad to use fake helpdesk calls to steal creds,
+162.33.177.16,,ClickFix Deno Abuse to CastleRAT,
+165.22.170.129,,Matryoshka #3/3: Gamaredon's Gammasteel Infostealer,2026-06-04T14:23:14

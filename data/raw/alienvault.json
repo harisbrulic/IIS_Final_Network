@@ -1,6 +1,123 @@
 {
   "results": [
     {
+      "id": "6a21844636a81843ce1af3cc",
+      "name": "Matryoshka #3/3: Gamaredon's Gammasteel Infostealer",
+      "description": "This analysis examines Gamaredon's (UAC-0010, Armagedon) advanced espionage operations targeting Ukrainian government, military, and critical infrastructure. The FSB-operated group deploys GammaSteel, a sophisticated stealer operating almost entirely from memory using Windows DPAPI encryption and storing 71 distinct payload functions in the HKCU\\Printers registry key. The malware employs three concurrent data acquisition mechanisms: timed drive scans, USB monitoring for air-gapped systems, and real-time file surveillance. Exfiltration occurs via legitimate S3-compatible cloud storage (Tebi.io) with fallback to operator-controlled servers. The infection chain extensively uses VBScript for evasion, Dead Drop Resolvers on platforms like Telegram and Mastodon for C2 configuration, and includes bidirectional backdoor capabilities enabling arbitrary remote code execution. Infrastructure demonstrates high automation with servers rotated approximately every 24 hours.",
+      "author_name": "AlienVault",
+      "modified": "2026-06-05T08:46:33.421000",
+      "created": "2026-06-04T13:57:26.399000",
+      "revision": 2,
+      "tlp": "white",
+      "public": 1,
+      "adversary": "Gamaredon",
+      "indicators": [
+        {
+          "id": 4393177743,
+          "indicator": "https://justsstop.ru/",
+          "type": "URL",
+          "created": "2026-06-04T13:57:27",
+          "content": "",
+          "title": "",
+          "description": "",
+          "expiration": null,
+          "is_active": 1,
+          "role": null
+        },
+        {
+          "id": 4393177744,
+          "indicator": "justsstop.ru",
+          "type": "domain",
+          "created": "2026-06-04T13:57:27",
+          "content": "",
+          "title": "",
+          "description": "",
+          "expiration": null,
+          "is_active": 1,
+          "role": null
+        },
+        {
+          "id": 4393294907,
+          "indicator": "165.22.170.129",
+          "type": "IPv4",
+          "created": "2026-06-04T14:23:14",
+          "content": "",
+          "title": "",
+          "description": "",
+          "expiration": "2026-07-04T00:00:00",
+          "is_active": 1,
+          "role": null
+        },
+        {
+          "id": 4393294907,
+          "indicator": "165.22.170.129",
+          "type": "IPv4",
+          "created": "2026-06-04T14:23:23",
+          "content": "",
+          "title": "",
+          "description": "",
+          "expiration": "2026-07-04T00:00:00",
+          "is_active": 1,
+          "role": null
+        }
+      ],
+      "tags": [
+        "vbscript",
+        "gammaworm",
+        "cyberespionage",
+        "ukraine",
+        "fsb",
+        "usb-propagation",
+        "gammasteel",
+        "gammaphish",
+        "gammawipe",
+        "gamaredon",
+        "dead-drop-resolver",
+        "infostealer",
+        "gammaload",
+        "dpapi"
+      ],
+      "targeted_countries": [
+        "Ukraine"
+      ],
+      "malware_families": [
+        "GammaSteel",
+        "GammaLoad",
+        "GammaPhish",
+        "GammaWorm",
+        "GammaWipe"
+      ],
+      "attack_ids": [
+        "T1025",
+        "T1074.001",
+        "T1119",
+        "T1005",
+        "T1140",
+        "T1055",
+        "T1112",
+        "T1102",
+        "T1041",
+        "T1059.001",
+        "T1547.001",
+        "T1056.002",
+        "T1571",
+        "T1027",
+        "T1567.002",
+        "T1059.005",
+        "T1008",
+        "T1564.004"
+      ],
+      "references": [
+        "https://blog.sekoia.io/fsbs-matryoshka-3-3-gamaredons-gifts-that-keeps-unpacking-gammasteel/"
+      ],
+      "industries": [
+        "Government",
+        "Defense"
+      ],
+      "extract_source": [],
+      "more_indicators": false
+    },
+    {
       "id": "6a2201a2fe176ac0486f58e5",
       "name": "Latest goon squad to use fake helpdesk calls to steal creds",
       "description": "A new extortion group called Pink, tracked as cluster CL-CRI-1147, employs voice phishing and fake IT helpdesk impersonation to compromise organizations. The gang steals employee credentials, bypasses multi-factor authentication, and exfiltrates data from cloud storage platforms like SharePoint and OneDrive. Pink threatens to leak stolen information unless ransom demands are met, setting 72-hour deadlines. The group's data-leak site launched on May 31, 2026. This approach mirrors tactics popularized by Lapsus$, Scattered Spider, and ShinyHunters. Incident responders link Pink to The Com, a loosely connected network of English-speaking hackers and extortionists. Attackers use compromised victim accounts and internal Teams messages for extortion communications, reusing domains across multiple targets.",
@@ -1389,148 +1506,13 @@
       "industries": [],
       "extract_source": [],
       "more_indicators": false
-    },
-    {
-      "id": "69f9f99cd352da334850ef13",
-      "name": "CloudZ RAT potentially steals OTP messages using Pheno plugin",
-      "description": "Cisco Talos uncovered an intrusion active since January 2026 where attackers deployed CloudZ remote access tool and an undocumented plugin called Pheno to steal credentials and one-time passwords. The attack exploits Microsoft Phone Link application by intercepting synchronized mobile data including SMS and OTPs without requiring phone-level infection. CloudZ evades detection through dynamic memory execution and anti-analysis checks. The infection chain begins with a fake ScreenConnect update executable, leading to a Rust-compiled dropper that deploys a .NET loader, ultimately establishing the modular CloudZ RAT. The Pheno plugin monitors Phone Link processes and intercepts SQLite database files containing synchronized phone data. CloudZ employs ConfuserEx obfuscation, multiple configuration layers, and facilitates various commands including browser data exfiltration, shell execution, and plugin management while maintaining persistence through scheduled tasks.",
-      "author_name": "AlienVault",
-      "modified": "2026-06-04T14:01:50.101000",
-      "created": "2026-05-05T14:07:24.589000",
-      "revision": 2,
-      "tlp": "white",
-      "public": 1,
-      "adversary": "",
-      "indicators": [
-        {
-          "id": 4208158431,
-          "indicator": "5b7284bcf30569ae400e416a62391720cc9081e6047f15816f9d1a04a06eb321",
-          "type": "FileHash-SHA256",
-          "created": "2026-05-05T14:07:25",
-          "content": "",
-          "title": "",
-          "description": "",
-          "expiration": null,
-          "is_active": 1,
-          "role": null
-        },
-        {
-          "id": 4344028338,
-          "indicator": "a39299719bb4151c373a0e9b92b2bd05",
-          "type": "FileHash-MD5",
-          "created": "2026-05-05T14:07:25",
-          "content": "",
-          "title": "",
-          "description": "",
-          "expiration": null,
-          "is_active": 1,
-          "role": null
-        },
-        {
-          "id": 4344028339,
-          "indicator": "e3ef02456a4df8236da5ee2082a5df36e746b463",
-          "type": "FileHash-SHA1",
-          "created": "2026-05-05T14:07:25",
-          "content": "",
-          "title": "",
-          "description": "",
-          "expiration": null,
-          "is_active": 1,
-          "role": null
-        },
-        {
-          "id": 4344028340,
-          "indicator": "24398b75be2645e6c695e529e62e60deb418143a4bbea13c561d3c361419eb54",
-          "type": "FileHash-SHA256",
-          "created": "2026-05-05T14:07:25",
-          "content": "",
-          "title": "",
-          "description": "",
-          "expiration": null,
-          "is_active": 1,
-          "role": null
-        },
-        {
-          "id": 4344028341,
-          "indicator": "33af554562176eff34598a839051b8e91692b0305edfdbb4d8eb9df0103ffd98",
-          "type": "FileHash-SHA256",
-          "created": "2026-05-05T14:07:25",
-          "content": "",
-          "title": "",
-          "description": "",
-          "expiration": null,
-          "is_active": 1,
-          "role": null
-        },
-        {
-          "id": 4344028342,
-          "indicator": "65fcd965040fabeb6f092df0a4b6856125018bb3b6a1876342da458139f77dac",
-          "type": "FileHash-SHA256",
-          "created": "2026-05-05T14:07:25",
-          "content": "",
-          "title": "",
-          "description": "",
-          "expiration": null,
-          "is_active": 1,
-          "role": null
-        },
-        {
-          "id": 4344028343,
-          "indicator": "ed5de036edbbda52ab0049d2163607038d38a49404a46b6bcfc4bac26b743832",
-          "type": "FileHash-SHA256",
-          "created": "2026-05-05T14:07:25",
-          "content": "",
-          "title": "",
-          "description": "",
-          "expiration": null,
-          "is_active": 1,
-          "role": null
-        }
-      ],
-      "tags": [
-        "cloudz",
-        "pheno"
-      ],
-      "targeted_countries": [],
-      "malware_families": [
-        "CloudZ",
-        "Pheno"
-      ],
-      "attack_ids": [
-        "T1053.005",
-        "T1113",
-        "T1033",
-        "T1497.001",
-        "T1082",
-        "T1005",
-        "T1140",
-        "T1036",
-        "T1055",
-        "T1497.003",
-        "T1555.003",
-        "T1083",
-        "T1041",
-        "T1059.001",
-        "T1027",
-        "T1573",
-        "T1218.009",
-        "T1059.003",
-        "T1071.001",
-        "T1105"
-      ],
-      "references": [
-        "https://blog.talosintelligence.com/cloudz-pheno-infostealer/"
-      ],
-      "industries": [],
-      "extract_source": [],
-      "more_indicators": false
     }
   ],
-  "count": 8597,
+  "count": 8598,
   "prefetch_pulse_ids": false,
   "t": 0,
-  "t2": 0.04201626777648926,
-  "t3": 0.07695150375366211,
+  "t2": 0.024615049362182617,
+  "t3": 0.041376590728759766,
   "previous": null,
   "next": "https://otx.alienvault.com/api/v1/pulses/subscribed?page=2"
 }
