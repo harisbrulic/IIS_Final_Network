@@ -22,6 +22,13 @@ def preprocess_data():
     with open("data/raw/alienvault.json", "r") as f:
         threats = json.load(f)
         
+    threats_path = "data/preprocessed/threats.csv"
+    
+    if os.path.exists(threats_path):
+        existing_df = pd.read_csv(threats_path)
+    else:
+        existing_df = pd.DataFrame(columns=["ip","pulse"])
+        
     ips = []
     
     for pulse in threats.get("results",[]):
@@ -30,12 +37,15 @@ def preprocess_data():
                 ips.append({
                     
                     "ip": indicator.get("indicator"),
-                    "description": indicator.get("description"),
                     "pulse": pulse.get("name")
                 })
                 
-    threats_df = pd.DataFrame(ips)
-    threats_df.to_csv("data/preprocessed/threats.csv", index = False)
+    new_df = pd.DataFrame(ips)
+    
+    combined_df = pd.concat([existing_df, new_df], ignore_index=True)
+    combined_df = combined_df.drop_duplicates(subset=["ip"])
+    
+    combined_df.to_csv(threats_path, index=False)
 
     return True
 
