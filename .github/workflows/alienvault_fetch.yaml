@@ -23,43 +23,27 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: DVC getting ready
-        uses: iterative/setup-dvc@v1
-
       - name: Install requirements
         run: pip install -r requirements.txt
 
       - name: Configure DVC
         run: |
-          dvc remote modify origin endpointurl https://dagshub.com/haris.brulic/IIS_Final_Network.s3
-          dvc remote modify origin --local access_key_id ${{ secrets.DAGSHUB_ACCESS_KEY_ID }}
-          dvc remote modify origin --local secret_access_key ${{ secrets.DAGSHUB_SECRET_ACCESS_KEY }}
+          dvc remote modify origin --local auth basic
+          dvc remote modify origin --local user ${{ secrets.DAGSHUB_USERNAME }}
+          dvc remote modify origin --local password ${{ secrets.DAGSHUB_TOKEN }}
 
-      - name: Pull from DVC
-        run: dvc pull
-      
-      - name: Fetch threatfox
-        run: python src/data/threatfox_fetch.py
+      - name: Run DVC pipeline
+        run: |
+          dvc pull
+          dvc repro
+          dvc push
         env:
           THREATFOX_API_KEY: ${{ secrets.THREATFOX_API_KEY }}
 
-      - name: Preprocess
-        run: python src/data/preprocess_data.py
-
-      - name: Validate
-        run: python gx/exceptions.py
-
-      - name: Push to DVC
-        run: dvc push
-
-      - name: Check changes
-        run: git status
-
-      - name: Commit new data
+      - name: Commit changes
         run: |
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
-          git add data/
           git add dvc.lock
-          git commit -m "Update live threats $(date)" || echo "No changes"
+          git commit -m "Update dvc.lock $(date)" || echo "No changes"
           git push
