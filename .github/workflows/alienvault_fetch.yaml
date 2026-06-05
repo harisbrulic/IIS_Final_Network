@@ -1,4 +1,4 @@
-name: alientvault_fetch
+name: threatfox_fetch
 
 on:
   schedule:
@@ -27,9 +27,9 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Fetch threats
-        run: python src/data/alienvault_fetch.py
+        run: python src/data/threatfox_fetch.py
         env:
-          ALIENVAULT_API_KEY: ${{ secrets.ALIENVAULT_API_KEY }}
+          THREATFOX_API_KEY: ${{ secrets.THREATFOX_API_KEY }}
 
       - name: Preprocess data
         run: python src/data/preprocess_data.py
@@ -41,7 +41,7 @@ jobs:
         run: |
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
-          git add data/raw/alienvault.json
+          git add data/raw/threatfox.json
           git add data/preprocessed/threats.csv
           git commit -m "Update live threats $(date)" || echo "No changes"
           git push
