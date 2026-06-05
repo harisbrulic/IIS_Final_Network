@@ -40,3 +40,24 @@ stages:
       hash: md5
       md5: b27a0e4f840a3aeb6babacf69f8a1c82
       size: 10007
+  validate:
+    cmd: cd gx && python run_checkpoint.py
+    deps:
+    - path: data/preprocessed/attacks.csv
+      hash: md5
+      md5: 5e20288e5df11c02e724afaf1c0e4aeb
+      size: 87088639
+    - path: data/preprocessed/normal.csv
+      hash: md5
+      md5: 349a2e5ec56f3f33ef515965be314140
+      size: 2191170
+    - path: data/preprocessed/threats.csv
+      hash: md5
+      md5: b27a0e4f840a3aeb6babacf69f8a1c82
+      size: 10007
+    outs:
+    - path: gx
+      hash: md5
+      md5: f5b8c4a838f0ee91056e0b05e74f8d8c.dir
+      size: 9925610
+      nfiles: 50
