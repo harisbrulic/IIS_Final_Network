@@ -29,6 +29,14 @@ jobs:
       - name: Install requirements
         run: pip install -r requirements.txt
 
+      - name: Configure DVC
+        run: |
+          dvc remote modify origin --local user ${{ secrets.DAGSHUB_USERNAME }}
+          dvc remote modify origin --local password ${{ secrets.DAGSHUB_TOKEN }}
+
+      - name: Pull from DVC
+        run: dvc pull
+      
       - name: Fetch threatfox
         run: python src/data/threatfox_fetch.py
         env:
@@ -39,11 +47,6 @@ jobs:
 
       - name: Validate
         run: python gx/exceptions.py
-
-      - name: Configure DVC
-        run: |
-          dvc remote modify origin --local user ${{ secrets.DAGSHUB_USERNAME }}
-          dvc remote modify origin --local password ${{ secrets.DAGSHUB_TOKEN }}
 
       - name: Push to DVC
         run: dvc push
