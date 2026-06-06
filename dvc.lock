@@ -61,3 +61,23 @@ stages:
       md5: d2cfbf94cf0551440a64993a595cf4e9.dir
       size: 11822394
       nfiles: 54
+  test:
+    cmd: python src/tests/tests.py
+    deps:
+    - path: data/preprocessed/threats.csv
+      hash: md5
+      md5: b27a0e4f840a3aeb6babacf69f8a1c82
+      size: 10007
+    - path: src/tests/tests.py
+      hash: md5
+      md5: 0c15f0911d665d6abe5e9539522e8a46
+      size: 1636
+    outs:
+    - path: data/reference/threats.csv
+      hash: md5
+      md5: b27a0e4f840a3aeb6babacf69f8a1c82
+      size: 10007
+    - path: reports/data_testing_report.html
+      hash: md5
+      md5: 39baec094e20a6cec601f899762b4f79
+      size: 3826872
