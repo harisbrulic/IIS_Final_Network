@@ -26,3 +26,14 @@ stages:
     outs:
       - gx:
           persist: true
+    
+  test:
+    cmd: python src/tests/tests.py
+    deps:
+      - src/tests/tests.py
+      - data/preprocessed/threats.csv
+    outs:
+      - reports/data_testing_report.html:
+          persist: true
+      - data/reference/threats.csv:
+          persist: true
