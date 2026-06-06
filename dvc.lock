@@ -41,26 +41,26 @@ stages:
       md5: b27a0e4f840a3aeb6babacf69f8a1c82
       size: 10007
   validate:
-    cmd: cd gx && python exceptions.py
+    cmd: cd gx && python run_checkpoints.py
     deps:
     - path: data/preprocessed/attacks.csv
       hash: md5
-      md5: b4883edd1e69e07727b78cca78ce4b21
-      size: 86670667
+      md5: 5e20288e5df11c02e724afaf1c0e4aeb
+      size: 87088639
     - path: data/preprocessed/normal.csv
       hash: md5
-      md5: b2c652c3197c3eb428f73b08736f7df3
-      size: 2180989
+      md5: 349a2e5ec56f3f33ef515965be314140
+      size: 2191170
     - path: data/preprocessed/threats.csv
       hash: md5
-      md5: 17c1f54a20bf83954d9dbef850e1fdaf
-      size: 11849
+      md5: b27a0e4f840a3aeb6babacf69f8a1c82
+      size: 10007
     outs:
     - path: gx
       hash: md5
-      md5: d2cfbf94cf0551440a64993a595cf4e9.dir
-      size: 11822394
-      nfiles: 54
+      md5: f4f384f65aed54edf3616967e002490b.dir
+      size: 11595916
+      nfiles: 56
   test:
     cmd: python src/tests/tests.py
     deps:
