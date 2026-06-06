@@ -5,13 +5,13 @@ stages:
     deps:
     - path: src/data/threatfox_fetch.py
       hash: md5
-      md5: 06b04423ca640e231ff77c5509508840
-      size: 1009
+      md5: 80ccef1be546edae50377455e7259665
+      size: 964
     outs:
     - path: data/raw/threatfox.json
       hash: md5
-      md5: f8e8fc13e0fd4daafe8e21ce2a662f60
-      size: 333964
+      md5: e8f112cc684c71431aec3f845285ec9d
+      size: 286545
   preprocess:
     cmd: python src/data/preprocess_data.py
     deps:
@@ -21,43 +21,43 @@ stages:
       size: 88473082
     - path: data/raw/threatfox.json
       hash: md5
-      md5: f8e8fc13e0fd4daafe8e21ce2a662f60
-      size: 333964
+      md5: e8f112cc684c71431aec3f845285ec9d
+      size: 286545
     - path: src/data/preprocess_data.py
       hash: md5
-      md5: 4309340d98bd5ee9053a740e9d0f004c
-      size: 2059
+      md5: 31a5325a5ac864ebb31459893dffe671
+      size: 1993
     outs:
     - path: data/preprocessed/attacks.csv
       hash: md5
-      md5: 5e20288e5df11c02e724afaf1c0e4aeb
-      size: 87088639
+      md5: b4883edd1e69e07727b78cca78ce4b21
+      size: 86670667
     - path: data/preprocessed/normal.csv
       hash: md5
-      md5: 349a2e5ec56f3f33ef515965be314140
-      size: 2191170
+      md5: b2c652c3197c3eb428f73b08736f7df3
+      size: 2180989
     - path: data/preprocessed/threats.csv
       hash: md5
-      md5: b27a0e4f840a3aeb6babacf69f8a1c82
-      size: 10007
+      md5: 17c1f54a20bf83954d9dbef850e1fdaf
+      size: 11849
   validate:
     cmd: cd gx && python exceptions.py
     deps:
     - path: data/preprocessed/attacks.csv
       hash: md5
-      md5: 5e20288e5df11c02e724afaf1c0e4aeb
-      size: 87088639
+      md5: b4883edd1e69e07727b78cca78ce4b21
+      size: 86670667
     - path: data/preprocessed/normal.csv
       hash: md5
-      md5: 349a2e5ec56f3f33ef515965be314140
-      size: 2191170
+      md5: b2c652c3197c3eb428f73b08736f7df3
+      size: 2180989
     - path: data/preprocessed/threats.csv
       hash: md5
-      md5: b27a0e4f840a3aeb6babacf69f8a1c82
-      size: 10007
+      md5: 17c1f54a20bf83954d9dbef850e1fdaf
+      size: 11849
     outs:
     - path: gx
       hash: md5
-      md5: 05db30fd0258ead6c70a5726709a32e7.dir
-      size: 9925584
-      nfiles: 50
+      md5: d2cfbf94cf0551440a64993a595cf4e9.dir
+      size: 11822394
+      nfiles: 54
