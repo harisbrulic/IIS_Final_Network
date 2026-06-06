@@ -14,3 +14,4 @@ dvclive==3.45.0
 great-expectations==0.18.13
 pathspec==0.11.2
 boto3==1.34.69
+evidently==0.7.21
