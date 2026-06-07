@@ -10,3 +10,5 @@ pandas
 mlflow
 requests
 python-dotenv
+lime
+google-generativeai
