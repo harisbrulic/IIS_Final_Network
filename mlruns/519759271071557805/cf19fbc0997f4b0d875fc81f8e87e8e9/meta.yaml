@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/bruli/Desktop/IIS_FInal_Network/mlruns/519759271071557805/cf19fbc0997f4b0d875fc81f8e87e8e9/artifacts
+end_time: 1780835083747
+entry_point_name: ''
+experiment_id: '519759271071557805'
+lifecycle_stage: active
+run_id: cf19fbc0997f4b0d875fc81f8e87e8e9
+run_name: fearless-steed-581
+run_uuid: cf19fbc0997f4b0d875fc81f8e87e8e9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780834986790
+status: 3
+tags: []
+user_id: bruli

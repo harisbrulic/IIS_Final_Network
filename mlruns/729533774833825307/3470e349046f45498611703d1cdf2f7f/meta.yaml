@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/bruli/Desktop/IIS_FInal_Network/mlruns/729533774833825307/3470e349046f45498611703d1cdf2f7f/artifacts
+end_time: 1780835344613
+entry_point_name: ''
+experiment_id: '729533774833825307'
+lifecycle_stage: active
+run_id: 3470e349046f45498611703d1cdf2f7f
+run_name: orderly-lamb-933
+run_uuid: 3470e349046f45498611703d1cdf2f7f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780835237008
+status: 3
+tags: []
+user_id: bruli
