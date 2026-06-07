@@ -57,5 +57,3 @@ stages:
           persist: true
       - models/ip_label_encoder.pkl:
           persist: true
-      - mlruns/:
-          persist: true
