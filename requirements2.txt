@@ -7,7 +7,7 @@ scikit-learn
 joblib
 numpy>=1.24.0,<2.0.0
 pandas>=2.0.0
-mlflow
+mlflow==2.9.2
 requests
 python-dotenv
 lime
