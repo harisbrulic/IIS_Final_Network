@@ -91,8 +91,14 @@ stages:
       size: 8281
     - path: src/models/model3.py
       hash: md5
-      md5: d79c295fe2b2063dde3607f965cccca4
-      size: 1936
+      md5: 8c77e014b8031e75e16d20feaddeb737
+      size: 2008
+    params:
+      params.yaml:
+        train.max_depth: 4
+        train.n_estimators: 100
+        train.random_state: 42
+        train.test_size: 0.2
     outs:
     - path: models/ip_classifier.pkl
       hash: md5
