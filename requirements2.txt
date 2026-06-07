@@ -5,8 +5,8 @@ tensorflow
 xgboost
 scikit-learn
 joblib
-numpy
-pandas
+numpy>=1.24.0,<2.0.0
+pandas>=2.0.0
 mlflow
 requests
 python-dotenv
