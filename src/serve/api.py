@@ -42,6 +42,28 @@ stats = {
 def root():
     return {"message": "Network Attack"}
 
+
+STATS_FILE = "data/stats.json"
+
+def load_stats():
+    if os.path.exists(STATS_FILE):
+        with open(STATS_FILE, "r") as f:
+            return json.load(f)
+    return {
+        "total_predictions": 0,
+        "total_attacks": 0,
+        "total_normal": 0,
+        "attack_types": {},
+        "last_prediction": None
+    }
+
+def save_stats(stats):
+    os.makedirs("data", exist_ok=True)
+    with open(STATS_FILE, "w") as f:
+        json.dump(stats, f, indent=2)
+
+stats = load_stats()
+
 @app.post("/predict")
 def predict(data: TrafficInput):
     
@@ -62,13 +84,6 @@ def predict(data: TrafficInput):
         xgb_pred = xgboost.predict([data.features])[0]
         attack_type = label_encoder.inverse_transform([xgb_pred])[0]
     
-    return {
-        "is_anomaly": bool(is_anomaly),
-        "reconstruction_error": error,
-        "attack_type": attack_type,
-        "ip_threat": ip_threat
-    }
-    
     stats["total_predictions"] += 1
     if is_anomaly:
         stats["total_attacks"] += 1
@@ -76,6 +91,7 @@ def predict(data: TrafficInput):
     else:
         stats["total_normal"] += 1
     stats["last_prediction"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    save_stats(stats)
     
     return {
         "is_anomaly": bool(is_anomaly),
