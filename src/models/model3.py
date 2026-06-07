@@ -18,7 +18,7 @@ def ip_to_features(ip):
 
 def train_ip_classifier():
     
-    mlflow.set_tracking_uri("file:./mlruns")
+    mlflow.set_tracking_uri(f"https://dagshub.com/{os.getenv('MLFLOW_TRACKING_USERNAME')}/IIS_Final_Network.mlflow")
     mlflow.set_experiment("ip_classifier")
     
     os.makedirs("models", exist_ok=True)

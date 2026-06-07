@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models
+      - ./data:/app/data
+      - ./mlruns:/app/mlruns
+
+  dashboard:
+    build: .
+    ports:
+      - "8501:8501"
+    command: streamlit run src/serve/dashboard.py --server.port 8501
+    depends_on:
+      - api
+    environment:
+      - API_URL=http://api:8000

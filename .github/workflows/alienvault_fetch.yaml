@@ -1,4 +1,4 @@
-name: Fetch, Preprocess, Validate
+name: DVC PIPELINE
 
 on:
   schedule:
@@ -44,6 +44,9 @@ jobs:
           git commit -m "Update dvc.lock on `date` with GitHub Actions" || true
         env:
           THREATFOX_API_KEY: ${{ secrets.THREATFOX_API_KEY }}
+          MLFLOW_TRACKING_USERNAME: ${{ secrets.MLFLOW_TRACKING_USERNAME }}
+          MLFLOW_TRACKING_PASSWORD: ${{ secrets.MLFLOW_TRACKING_PASSWORD }}
+          MLFLOW_TRACKING_URI: https://dagshub.com/${{ secrets.MLFLOW_TRACKING_USERNAME }}/IIS_Final_Network.mlflow
 
       - name: Commit changes
         run: |

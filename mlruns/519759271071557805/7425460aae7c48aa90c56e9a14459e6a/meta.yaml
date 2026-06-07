@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/bruli/Desktop/IIS_FInal_Network/mlruns/519759271071557805/7425460aae7c48aa90c56e9a14459e6a/artifacts
+end_time: 1780840411979
+entry_point_name: ''
+experiment_id: '519759271071557805'
+lifecycle_stage: active
+run_id: 7425460aae7c48aa90c56e9a14459e6a
+run_name: whimsical-sloth-801
+run_uuid: 7425460aae7c48aa90c56e9a14459e6a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780840327454
+status: 3
+tags: []
+user_id: bruli

@@ -47,8 +47,15 @@ stages:
     deps:
       - src/models/model3.py
       - data/preprocessed/threats.csv
+    params:
+      - train.test_size
+      - train.random_state
+      - train.n_estimators
+      - train.max_depth
     outs:
       - models/ip_classifier.pkl:
           persist: true
       - models/ip_label_encoder.pkl:
+          persist: true
+      - mlruns/:
           persist: true

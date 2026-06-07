@@ -69,7 +69,7 @@ def model1():
         
         X_pred = autoencoder.predict(X)
         reconstruction_errors = np.mean(np.power(X - X_pred, 2), axis=(1,2))
-        threshold = np.mean(reconstruction_errors) + 2 * np.std(reconstruction_errors)
+        threshold = np.mean(reconstruction_errors) + 4 * np.std(reconstruction_errors)
         
         mlflow.log_metric("mean_reconstruction_error", float(np.mean(reconstruction_errors)))
         mlflow.log_metric("threshold", float(threshold))

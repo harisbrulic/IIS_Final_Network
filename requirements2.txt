@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+streamlit
+tensorflow
+xgboost
+scikit-learn
+joblib
+numpy
+pandas
+mlflow
+requests
+python-dotenv
