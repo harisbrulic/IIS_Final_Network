@@ -67,7 +67,6 @@ def train_ip_classifier():
         joblib.dump(model, "models/ip_classifier.pkl")
         joblib.dump(le, "models/ip_label_encoder.pkl")
         
-        mlflow.sklearn.log_model(model, "ip_classifier")
         
         print("Done")
     
