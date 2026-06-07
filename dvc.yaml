@@ -37,3 +37,18 @@ stages:
           persist: true
       - data/reference/threats.csv:
           persist: true
+
+  train_ip_classifier:
+    cmd: |
+      python src/models/model3.py
+      git commit -am "Updated ip_classifier $(date)" || true
+      git push || true
+      dvc push || true
+    deps:
+      - src/models/model3.py
+      - data/preprocessed/threats.csv
+    outs:
+      - models/ip_classifier.pkl:
+          persist: true
+      - models/ip_label_encoder.pkl:
+          persist: true
