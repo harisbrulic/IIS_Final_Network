@@ -5,13 +5,13 @@ stages:
     deps:
     - path: src/data/threatfox_fetch.py
       hash: md5
-      md5: b3de218f22f1c918fae466b5d1039f9a
-      size: 1005
+      md5: 61b2f1620aeb8ee07e124faabd4f25d1
+      size: 960
     outs:
     - path: data/raw/threatfox.json
       hash: md5
-      md5: f8e8fc13e0fd4daafe8e21ce2a662f60
-      size: 333964
+      md5: 9b73a5b7587950ace171ecb03613c9f7
+      size: 310608
   preprocess:
     cmd: python src/data/preprocess_data.py
     deps:
@@ -21,57 +21,57 @@ stages:
       size: 88473082
     - path: data/raw/threatfox.json
       hash: md5
-      md5: f8e8fc13e0fd4daafe8e21ce2a662f60
-      size: 333964
+      md5: 9b73a5b7587950ace171ecb03613c9f7
+      size: 310608
     - path: src/data/preprocess_data.py
       hash: md5
-      md5: 4309340d98bd5ee9053a740e9d0f004c
-      size: 2059
+      md5: 31a5325a5ac864ebb31459893dffe671
+      size: 1993
     outs:
     - path: data/preprocessed/attacks.csv
       hash: md5
-      md5: 5e20288e5df11c02e724afaf1c0e4aeb
-      size: 87088639
+      md5: b4883edd1e69e07727b78cca78ce4b21
+      size: 86670667
     - path: data/preprocessed/normal.csv
       hash: md5
-      md5: 349a2e5ec56f3f33ef515965be314140
-      size: 2191170
+      md5: b2c652c3197c3eb428f73b08736f7df3
+      size: 2180989
     - path: data/preprocessed/threats.csv
       hash: md5
-      md5: b27a0e4f840a3aeb6babacf69f8a1c82
-      size: 10007
+      md5: ca49d8fea43ce9b7f484856633f41cd8
+      size: 14474
   validate:
     cmd: cd gx && python run_checkpoints.py
     deps:
     - path: data/preprocessed/attacks.csv
       hash: md5
-      md5: 5e20288e5df11c02e724afaf1c0e4aeb
-      size: 87088639
+      md5: b4883edd1e69e07727b78cca78ce4b21
+      size: 86670667
     - path: data/preprocessed/normal.csv
       hash: md5
-      md5: 349a2e5ec56f3f33ef515965be314140
-      size: 2191170
+      md5: b2c652c3197c3eb428f73b08736f7df3
+      size: 2180989
     - path: data/preprocessed/threats.csv
       hash: md5
-      md5: b27a0e4f840a3aeb6babacf69f8a1c82
-      size: 10007
+      md5: ca49d8fea43ce9b7f484856633f41cd8
+      size: 14474
     outs:
     - path: gx
       hash: md5
-      md5: 130151dafbcc8a3d2d03c99456682922.dir
-      size: 11595966
-      nfiles: 56
+      md5: 05174fda69fb62151ea463bf5033242d.dir
+      size: 13543129
+      nfiles: 62
   test:
     cmd: python src/tests/tests.py
     deps:
     - path: data/preprocessed/threats.csv
       hash: md5
-      md5: b27a0e4f840a3aeb6babacf69f8a1c82
-      size: 10007
+      md5: ca49d8fea43ce9b7f484856633f41cd8
+      size: 14474
     - path: src/tests/tests.py
       hash: md5
-      md5: 8647ad16c908940fc16858ecfccdade5
-      size: 1500
+      md5: 261797263daca69324f2fc6f301991cf
+      size: 1448
     outs:
     - path: data/reference/threats.csv
       hash: md5
@@ -79,20 +79,20 @@ stages:
       size: 10007
     - path: reports/data_testing_report.html
       hash: md5
-      md5: 39baec094e20a6cec601f899762b4f79
-      size: 3826872
+      md5: 80f0993b77e5b0404aca462e18e33b3d
+      size: 3834633
   train_ip_classifier:
     cmd: "python src/models/model3.py\ngit commit -am \"Updated ip_classifier $(date)\"\
       \ || true\ngit push || true\ndvc push || true\n"
     deps:
     - path: data/preprocessed/threats.csv
       hash: md5
-      md5: b27a0e4f840a3aeb6babacf69f8a1c82
-      size: 10007
+      md5: ca49d8fea43ce9b7f484856633f41cd8
+      size: 14474
     - path: src/models/model3.py
       hash: md5
-      md5: dcc9a9946927c59c04f1ac480dc73741
-      size: 2083
+      md5: 8c77e014b8031e75e16d20feaddeb737
+      size: 2008
     params:
       params.yaml:
         train.max_depth: 4
@@ -102,9 +102,9 @@ stages:
     outs:
     - path: models/ip_classifier.pkl
       hash: md5
-      md5: 354af40630a55f5c65f673724ebb0a0e
-      size: 95548
+      md5: c021b48cbfbc6870182650265518a655
+      size: 73277
     - path: models/ip_label_encoder.pkl
       hash: md5
-      md5: 17ed0207abb4b9850c68679fba919e15
-      size: 557
+      md5: 0a9447a399f918e02b076aca3ff6aaa6
+      size: 483
