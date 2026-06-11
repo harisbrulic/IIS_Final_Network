@@ -31,7 +31,7 @@ def threatfox_fetch():
     
     data = json.loads(response.data.decode("utf-8"))
     print(f"Status: {data.get('query_status')}")
-    print(f"IoC-ova: {len(data.get('data', []))}")
+    print(f"IoC: {len(data.get('data', []))}")
     
     with open("data/raw/threatfox.json", "w") as f:
         json.dump(data, f, indent=2)

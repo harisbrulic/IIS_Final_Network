@@ -99,7 +99,7 @@ if page == "Live Monitor":
                         with st.spinner("Google Gemini"):
                             try:
                                 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-                                gemini_model = genai.GenerativeModel("gemini-2.0-flash")
+                                gemini_model = genai.GenerativeModel("gemini-2.5-flash")
                                 
                                 gemini_response = gemini_model.generate_content(f"""
                                     Network attack detected:

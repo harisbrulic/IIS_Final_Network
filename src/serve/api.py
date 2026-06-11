@@ -104,6 +104,9 @@ def predict(data: TrafficInput):
 def health():
     return {"status": "ok"}
 
+training_data = pd.read_csv("data/preprocessed/normal.csv")
+training_data_num = training_data.select_dtypes(include=[np.number]).values
+
 @app.post("/explain")
 def explain(data: ExplainInput):
     X = np.array(data.features).reshape(1, -1)
@@ -120,15 +123,15 @@ def explain(data: ExplainInput):
     ]
     
     explainer = LimeTabularExplainer(
-        training_data=np.zeros((100, len(data.features))),
-        feature_names=feature_names,  # ← dodaj ovo!
+        training_data=training_data_num,
+        feature_names=feature_names,
         mode="classification"
     )
     
     explanation = explainer.explain_instance(
         X[0],
         xgboost.predict_proba,
-        num_features=10
+        num_features=5
     )
     
     lime_values = dict(explanation.as_list())

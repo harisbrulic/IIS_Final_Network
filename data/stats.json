@@ -1,0 +1,10 @@
+{
+  "total_predictions": 18,
+  "total_attacks": 15,
+  "total_normal": 3,
+  "attack_types": {
+    "DDOS-SYNONYMOUSIP_FLOOD": 12,
+    "RECON-HOSTDISCOVERY": 3
+  },
+  "last_prediction": "2026-06-07 19:27:27"
+}
